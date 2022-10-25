@@ -1,0 +1,11 @@
+.user{
+    height: 60px;
+    width: 60px;
+    border: 2px solid wheat;
+    border-radius: 30px;
+}
+.user-info{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
