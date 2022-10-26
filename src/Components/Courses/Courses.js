@@ -4,7 +4,6 @@ import AllCourses from '../All-Courses/All-Courses';
 
 const Courses = () => {
     const allTutorial = useLoaderData();
-    console.log(allTutorial);
     return (
         <div>
             <h3>Learn something and do something different in life.</h3>

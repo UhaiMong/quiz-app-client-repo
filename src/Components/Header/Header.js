@@ -3,14 +3,18 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Form from 'react-bootstrap/Form';
-import logo from '../../assects/logo/tyLogo.png'
+import logo from '../../assets/logo/tyLogo.png'
 import './Header.css'
 import { LinkContainer } from 'react-router-bootstrap'
 import Sidebar from '../Sidebar/Sidebar';
+import { useContext } from 'react';
+import { AuthContext } from '../../Contexts/Auth/Auth';
+
 
 const Header = () => {
+    const { user } = useContext(AuthContext);
     return (
-        <div>
+        <div className='header'>
             <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
                 <Container>
 
@@ -52,16 +56,15 @@ const Header = () => {
                         </Nav>
 
                         <Nav className='user-info'>
-                            <Nav.Link href="#deets">user email</Nav.Link>
+                            <Nav.Link href="#deets">{user.displayName}</Nav.Link>
                             <LinkContainer to="/login">
                                 <Nav.Link>Login</Nav.Link>
                             </LinkContainer>
                             <Nav.Link>Logout</Nav.Link>
-                            <Nav.Link href="#memes">
-                                <div className='user'>
+                            
+                                <div title= {user.displayName} className='user'>
                                     <img src={logo} class="img-fluid" alt="user" />
                                 </div>
-                            </Nav.Link>
                         </Nav>
                         <div className='d-lg-none d-block'>
                             <Sidebar></Sidebar>

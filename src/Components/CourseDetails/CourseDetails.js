@@ -3,7 +3,7 @@ import { useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { useLoaderData } from 'react-router-dom';
 import { useReactToPrint } from 'react-to-print';
-import { FaBeer, FaPrint } from 'react-icons/fa';
+import { FaPrint } from 'react-icons/fa';
 import './CourseDetails.css'
 
 const CourseDetails = () => {

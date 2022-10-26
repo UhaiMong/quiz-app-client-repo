@@ -1,7 +1,6 @@
 import React from 'react';
 
 const AllCourses = ({ tutorial }) => {
-    console.log(tutorial);
     return (
         <div>
             <div className="col col-rows-1 col-rows-md-3 g-4 w-75 mb-4 m-auto">
