@@ -5,7 +5,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import Form from 'react-bootstrap/Form';
 import logo from '../../assects/logo/tyLogo.png'
 import './Header.css'
-import { Link } from 'react-router-dom';
+import { LinkContainer } from 'react-router-bootstrap'
 import Sidebar from '../Sidebar/Sidebar';
 
 const Header = () => {
@@ -29,9 +29,19 @@ const Header = () => {
                     <Navbar.Collapse id="responsive-navbar-nav">
 
                         <Nav className="me-auto">
-                            <Nav.Link to="/courses">Courses</Nav.Link>
-                            <Nav.Link to="/faq">FAQ</Nav.Link>
-                            <Nav.Link to="/blog">Blog</Nav.Link>
+
+                            <LinkContainer to="/courses">
+                                <Nav.Link>Courses</Nav.Link>
+                            </LinkContainer>
+
+                            <LinkContainer to="/faq">
+                                <Nav.Link>FAQ</Nav.Link>
+                            </LinkContainer>
+
+                            <LinkContainer to="/blog">
+                                <Nav.Link>Blog</Nav.Link>
+                            </LinkContainer>
+
                             <Nav.Link className='d-lg-block d-none' href="#theme">
                                 <Form.Check
                                     type="switch"
@@ -43,6 +53,10 @@ const Header = () => {
 
                         <Nav className='user-info'>
                             <Nav.Link href="#deets">user email</Nav.Link>
+                            <LinkContainer to="/login">
+                                <Nav.Link>Login</Nav.Link>
+                            </LinkContainer>
+                            <Nav.Link>Logout</Nav.Link>
                             <Nav.Link href="#memes">
                                 <div className='user'>
                                     <img src={logo} class="img-fluid" alt="user" />
