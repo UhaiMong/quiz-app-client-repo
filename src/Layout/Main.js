@@ -15,7 +15,6 @@ const Main = () => {
                     </Col>
                     <Col lg="10">
                         <Outlet>
-                            <h1>Main content</h1>
                         </Outlet>
                     </Col>
                 </Row>

@@ -15,7 +15,7 @@ const CourseDetails = () => {
     });
     const tutorials = useLoaderData();
     return (
-        <div ref={ReadPdfPrint} className="card p-4 mt-3 mb-3 card-container">
+        <div ref={ReadPdfPrint} className="card p-4 mt-3 mb-3 card-container shadow-lg p-3 mb-5 bg-body rounded">
             <h2 className="card-title">{tutorials.title}<FaPrint className='printer' onClick={handleToPrint} title="Print now" /></h2>
             <img src={tutorials.image} className="card-img-top img-fluid rounded-2" alt="" />
             <div className="card-body">
