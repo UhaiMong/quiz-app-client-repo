@@ -1,0 +1,10 @@
+.tutorial-link{
+    text-decoration: none;
+    font-size: 18px;
+}
+.tutorial-link:hover{
+    text-decoration: underline;
+}
+.tutorial-link:focus{
+    color: #276ca9;
+}

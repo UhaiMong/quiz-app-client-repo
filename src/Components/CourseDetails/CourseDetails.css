@@ -1,0 +1,14 @@
+.card-container{
+    width: 100%;
+}
+.extra-info{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: bisque;
+    margin-bottom: 14px;
+}
+.extra-info span{
+    font-weight: 500;
+    padding: 10px;
+}

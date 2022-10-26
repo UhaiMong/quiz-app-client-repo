@@ -2,6 +2,7 @@ import React from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import './Sidebar.css'
 
 const Sidebar = () => {
     const [coursesName, setCoursesName] = useState([]);
@@ -18,7 +19,7 @@ const Sidebar = () => {
                     coursesName.map(course => <p
                         key={course.id}
                     >
-                        <Link to={`/course-name/{course.id}`}>{course.name}</Link>
+                        <Link className='tutorial-link' to={`/course-name/${course.id}`}>{course.name}</Link>
                     </p>)
                 }
         </div>
