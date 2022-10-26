@@ -1,26 +1,37 @@
 import { GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext } from 'react';
 import { FaGoogle } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Contexts/Auth/Auth';
 
 const RegisterPage = () => {
+    const { googleLoginProvider, createUser } = useContext(AuthContext);
+    const navigate = useNavigate();
+
     const handleToSubmit = (event) => {
         event.preventDefault();
         const form = event.target;
         const fullName = form.name.value;
+        const photoURL = form.photoURL.value;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(fullName, email, password);
+        createUser(email, password)
+            .then(result => {
+                const user = result.user;
+                form.reset();
+                console.log(user);
+                navigate('/login');
+            })
+            .catch(error => console.log(error))
     }
 
-    const { googleLoginProvider } = useContext(AuthContext);
     const googleProvider = new GoogleAuthProvider();
     const handleGoogleLogin = () => {
         googleLoginProvider(googleProvider)
             .then(result => {
                 const user = result.user;
                 console.log(user);
+                navigate('/courses')
             })
             .catch(error => {
                 console.error(error);
@@ -33,6 +44,12 @@ const RegisterPage = () => {
                     <label htmlFor="username" className="form-label">Full name</label>
 
                     <input name='name' type="text" className="form-control" placeholder="Full name" required />
+                </div>
+
+                <div className="mb-3">
+                    <label htmlFor="photoURL" className="form-label">photoURL</label>
+
+                    <input name='photoURL' type="text" className="form-control" placeholder="photoURL" />
                 </div>
 
                 <div className="mb-3">

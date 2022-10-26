@@ -12,7 +12,12 @@ import { AuthContext } from '../../Contexts/Auth/Auth';
 
 
 const Header = () => {
-    const { user } = useContext(AuthContext);
+    const { user, logOut } = useContext(AuthContext);
+    const handleToLogout = () => {
+        logOut()
+            .then(() => { })
+            .catch(error => console.error(error))
+    }
     return (
         <div className='header'>
             <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
@@ -59,7 +64,7 @@ const Header = () => {
                             <span className='text-white'>{user?.displayName}</span>
                             {
                                 user?.uid ?
-                                    <Nav.Link>Logout</Nav.Link>
+                                    <Nav.Link onClick={handleToLogout}>Logout</Nav.Link>
                                     :
                                     <LinkContainer to="/login">
                                         <Nav.Link>Login</Nav.Link>

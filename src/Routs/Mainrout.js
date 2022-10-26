@@ -13,6 +13,7 @@ export const routers = createBrowserRouter([
         children: [
             {
                 path: '/',
+                loader: () => fetch('http://localhost:5000/all-tutorial'),
                 element:<Courses></Courses>
                 
             },
