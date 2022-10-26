@@ -1,15 +1,22 @@
 import React from 'react';
+import { useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { useLoaderData } from 'react-router-dom';
+import { useReactToPrint } from 'react-to-print';
+import { FaBeer, FaPrint } from 'react-icons/fa';
 import './CourseDetails.css'
 
 const CourseDetails = () => {
+    const ReadPdfPrint = useRef();
+    const handleToPrint = useReactToPrint({
+        content: () => ReadPdfPrint.current,
+        documentTitle: 'Course_Data',
+        onAfterPrint: () => alert("Successfully Printed")
+    });
     const tutorials = useLoaderData();
-    console.log(tutorials);
     return (
-        <div className="card p-4 mt-3 mb-3 card-container">
-            <h2 className="card-title">{tutorials.title}</h2>
-            <button>Download as PDF</button>
+        <div ref={ReadPdfPrint} className="card p-4 mt-3 mb-3 card-container">
+            <h2 className="card-title">{tutorials.title}<FaPrint className='printer' onClick={handleToPrint} title="Print now" /></h2>
             <img src={tutorials.image} className="card-img-top img-fluid rounded-2" alt="" />
             <div className="card-body">
                 <p className="card-text">{tutorials.details}</p>

@@ -12,3 +12,8 @@
     font-weight: 500;
     padding: 10px;
 }
+.printer{
+    color: gray;
+    margin-left: 20px;
+    cursor: pointer;
+}
