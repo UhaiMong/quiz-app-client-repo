@@ -56,15 +56,28 @@ const Header = () => {
                         </Nav>
 
                         <Nav className='user-info'>
-                            <Nav.Link href="#deets">{user.displayName}</Nav.Link>
-                            <LinkContainer to="/login">
-                                <Nav.Link>Login</Nav.Link>
-                            </LinkContainer>
-                            <Nav.Link>Logout</Nav.Link>
-                            
-                                <div title= {user.displayName} className='user'>
-                                    <img src={logo} class="img-fluid" alt="user" />
-                                </div>
+                            <span className='text-white'>{user?.displayName}</span>
+                            {
+                                user?.uid ?
+                                    <Nav.Link>Logout</Nav.Link>
+                                    :
+                                    <LinkContainer to="/login">
+                                        <Nav.Link>Login</Nav.Link>
+                                    </LinkContainer>
+                            }
+
+
+                            {
+                                user?.photoURL ?
+                                    <div title={user?.displayName} className='user'>
+                                        <img src={user?.photoURL} className="img-fluid rounded-5" alt="user" />
+                                    </div>
+
+                                    :
+                                    <div title={user?.displayName} className='user'>
+                                        <img src={logo} className="img-fluid rounded-5" alt="user" />
+                                    </div>
+                            }
                         </Nav>
                         <div className='d-lg-none d-block'>
                             <Sidebar></Sidebar>
