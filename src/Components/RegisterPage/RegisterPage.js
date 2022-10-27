@@ -6,7 +6,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Contexts/Auth/Auth';
 
 const RegisterPage = () => {
-    const { googleLoginProvider, createUser } = useContext(AuthContext);
+    const { googleLoginProvider, createUser, updateUserProfile } = useContext(AuthContext);
     const navigate = useNavigate();
 
     const [error, setError] = useState('');
@@ -25,11 +25,22 @@ const RegisterPage = () => {
                 console.log(user);
                 alert("You registration is successful");
                 navigate('/login');
+                profileUpdateHandler(fullName, photoURL);
             })
             .catch(error => {
                 console.log(error);
                 setError(error.message);
             })
+    }
+
+    const profileUpdateHandler = (name, photoURL) => {
+        const profile = {
+            displayName: name,
+            photoURL: photoURL
+        }
+        updateUserProfile(profile)
+            .then(() => { })
+            .catch(e => console.error(e))
     }
 
     const googleProvider = new GoogleAuthProvider();
@@ -70,9 +81,9 @@ const RegisterPage = () => {
                     <input name='password' type="password" className="form-control" placeholder="Password" required />
                 </div>
                 <small>Already have an account <Link to='/login'>Go to login</Link></small><br />
-                
+
                 <span className='text-danger'>{error}</span>
-                
+
                 <button type="submit" className="btn btn-outline-secondary w-100 mt-4 shadow-lg mb-4 rounded">Register now</button>
 
             </form>
