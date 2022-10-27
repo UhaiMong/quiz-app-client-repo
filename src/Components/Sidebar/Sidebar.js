@@ -13,7 +13,7 @@ const Sidebar = () => {
             .then(data => setCoursesName(data))
     }, [])
     return (
-        <div className='border-2'>
+        <div className='border border-info mt-3 p-2 w-100 shadow p-3 mb-5 bg-body rounded'>
             <h5>Total Courses {coursesName.length}</h5>
                 {
                     coursesName.map(course => <p
