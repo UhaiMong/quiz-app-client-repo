@@ -28,14 +28,7 @@ const CourseDetails = () => {
                     <span><span className='special'>Review:</span> {tutorials.rating.rate}</span>
                     <span><span className='special'>Total Seat:</span>{tutorials.rating.count}</span>
                 </div>
-                <Link to={{
-                    pathname: `/checkout/${tutorials.id}`,
-                    query: {
-                        title: tutorials.title,
-                        content: tutorials.details,
-                        comments: JSON.stringify(tutorials.comments),
-                    }
-                }} className='btn btn-success'>Get Premium Access</Link>
+                <Link to='/checkout' className='btn btn-success'>Get Premium Access</Link>
             </div>
         </div>
     );

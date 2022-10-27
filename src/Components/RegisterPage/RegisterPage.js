@@ -24,7 +24,7 @@ const RegisterPage = () => {
                 form.reset();
                 console.log(user);
                 alert("You registration is successful");
-                navigate('/login');
+                navigate('/courses');
                 profileUpdateHandler(fullName, photoURL);
             })
             .catch(error => {

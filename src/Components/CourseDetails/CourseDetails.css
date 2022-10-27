@@ -18,14 +18,19 @@
     margin-left: 20px;
     cursor: pointer;
 }
+.special{
+    font-size: 17px;
+}
 @media screen and (max-width:700px) {
     .extra-information{
         display: grid;
         grid-template-columns: repeat(2,1fr);
         justify-content: space-between;
     }
+    .extra-information span{
+        font-size: 10px;
+    }
     .special{
         color: #a15f08;
-        font-size: 17px;
     }
 }
