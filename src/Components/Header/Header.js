@@ -54,7 +54,7 @@ const Header = () => {
                         </Nav>
 
                         <Nav className='user-info'>
-                            <span className='text-white'>{user?.displayName}</span>
+                            <span className='text-white fs-5'>{user?.displayName}</span>
                             {
                                 user?.uid ?
                                     <Nav.Link onClick={handleToLogout}>Logout</Nav.Link>

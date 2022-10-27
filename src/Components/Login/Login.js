@@ -17,6 +17,7 @@ const Login = () => {
 
     const from = location.state?.from?.pathname || '/';
 
+    // login with email and password
     const handleToSubmit = (event) => {
         event.preventDefault();
         const form = event.target;
@@ -44,6 +45,7 @@ const Login = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
+                navigate('/courses');
             })
             .catch(error => {
                 console.error(error);
@@ -56,6 +58,7 @@ const Login = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
+                navigate('/courses');
             })
             .catch(error => {
                 setError(error.message);

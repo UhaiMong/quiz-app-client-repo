@@ -3,6 +3,7 @@ import Blog from "../Components/Blog/Blog";
 import CheckoutPage from "../Components/CheckoutPage/CheckoutPage";
 import CourseDetails from "../Components/CourseDetails/CourseDetails";
 import Courses from "../Components/Courses/Courses";
+import StaticFaqSection from "../Components/FAQpage/FAQpage";
 import Login from "../Components/Login/Login";
 import RegisterPage from "../Components/RegisterPage/RegisterPage";
 import Main from "../Layout/Main";
@@ -23,6 +24,11 @@ export const routers = createBrowserRouter([
                 path: '/courses',
                 loader: () => fetch('https://learn-yourself-server.vercel.app/all-tutorial'),
                 element: <Courses></Courses>
+
+            },
+            {
+                path: '/faq',
+                element: <StaticFaqSection/>
 
             },
             {
