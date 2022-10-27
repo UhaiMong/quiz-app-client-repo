@@ -1,5 +1,6 @@
 import { GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext } from 'react';
+import { useState } from 'react';
 import { FaGoogle } from 'react-icons/fa';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Contexts/Auth/Auth';
@@ -7,6 +8,8 @@ import { AuthContext } from '../../Contexts/Auth/Auth';
 const RegisterPage = () => {
     const { googleLoginProvider, createUser } = useContext(AuthContext);
     const navigate = useNavigate();
+
+    const [error, setError] = useState('');
 
     const handleToSubmit = (event) => {
         event.preventDefault();
@@ -20,9 +23,13 @@ const RegisterPage = () => {
                 const user = result.user;
                 form.reset();
                 console.log(user);
+                alert("You registration is successful");
                 navigate('/login');
             })
-            .catch(error => console.log(error))
+            .catch(error => {
+                console.log(error);
+                setError(error.message);
+            })
     }
 
     const googleProvider = new GoogleAuthProvider();
@@ -62,7 +69,10 @@ const RegisterPage = () => {
 
                     <input name='password' type="password" className="form-control" placeholder="Password" required />
                 </div>
-                <small>Already have an account <Link to='/login'>Go to login</Link></small>
+                <small>Already have an account <Link to='/login'>Go to login</Link></small><br />
+                
+                <span className='text-danger'>{error}</span>
+                
                 <button type="submit" className="btn btn-outline-secondary w-100 mt-4 shadow-lg mb-4 rounded">Register now</button>
 
             </form>

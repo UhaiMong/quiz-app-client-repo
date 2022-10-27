@@ -27,7 +27,7 @@ const CourseDetails = () => {
                     <span>Student Review: {tutorials.rating.rate}</span>
                     <span>Available Seat: {tutorials.rating.count}</span>
                 </div>
-                <Link className='btn btn-success'>Get Premium Access</Link>
+                <Link to='/checkout' className='btn btn-success'>Get Premium Access</Link>
             </div>
         </div>
     );

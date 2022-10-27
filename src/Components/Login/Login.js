@@ -3,14 +3,18 @@ import React from 'react';
 import { useState } from 'react';
 import { useContext } from 'react';
 import { FaGoogle } from 'react-icons/fa';
+import { useLocation } from 'react-router-dom';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Contexts/Auth/Auth';
 
 const Login = () => {
     const { googleLoginProvider, signIn } = useContext(AuthContext);
     const navigate = useNavigate();
+    const location = useLocation();
 
     const [error, setError] = useState('');
+
+    const from = location.state?.from?.pathname || '/';
 
     const handleToSubmit = (event) => {
         event.preventDefault();
@@ -23,7 +27,7 @@ const Login = () => {
                 console.log(user);
                 form.reset();
                 setError('');
-                navigate('/courses');
+                navigate(from,{replace:true});
             })
             .catch(error => {
                 console.error(error);
