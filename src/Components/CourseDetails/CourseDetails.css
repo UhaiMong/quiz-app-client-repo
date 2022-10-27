@@ -1,19 +1,31 @@
 .card-container{
     width: 100%;
 }
-.extra-info{
+.extra-information{
     display: flex;
     justify-content: space-between;
     align-items: center;
     background-color: bisque;
     margin-bottom: 14px;
 }
-.extra-info span{
+.extra-information span{
     font-weight: 500;
     padding: 10px;
+    font-size: 15px;
 }
 .printer{
-    color: gray;
+    color: #93a495;
     margin-left: 20px;
     cursor: pointer;
+}
+@media screen and (max-width:700px) {
+    .extra-information{
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        justify-content: space-between;
+    }
+    .special{
+        color: #a15f08;
+        font-size: 17px;
+    }
 }

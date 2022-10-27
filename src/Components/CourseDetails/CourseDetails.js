@@ -22,11 +22,11 @@ const CourseDetails = () => {
             <div className="card-body">
                 <p className="card-text">{tutorials.details}</p>
 
-                <div className='extra-info'>
-                    <span>Price: ${tutorials.price}</span>
-                    <span>Published date: {tutorials.date}</span>
-                    <span>Student Review: {tutorials.rating.rate}</span>
-                    <span>Available Seat: {tutorials.rating.count}</span>
+                <div className='extra-information'>
+                    <span><span className='special'>Price:</span> ${tutorials.price}</span>
+                    <span><span className='special'>Published:</span> {tutorials.date}</span>
+                    <span><span className='special'>Review:</span> {tutorials.rating.rate}</span>
+                    <span><span className='special'>Total Seat:</span>{tutorials.rating.count}</span>
                 </div>
                 <Link to={{
                     pathname: `/checkout/${tutorials.id}`,
