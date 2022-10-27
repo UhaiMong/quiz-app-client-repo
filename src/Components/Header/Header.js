@@ -2,13 +2,13 @@ import React from 'react';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import Form from 'react-bootstrap/Form';
 import logo from '../../assets/logo/tyLogo.png'
 import './Header.css'
 import { LinkContainer } from 'react-router-bootstrap'
 import Sidebar from '../Sidebar/Sidebar';
 import { useContext } from 'react';
 import { AuthContext } from '../../Contexts/Auth/Auth';
+import '../../App.css'
 
 
 const Header = () => {
@@ -51,13 +51,6 @@ const Header = () => {
                                 <Nav.Link>Blog</Nav.Link>
                             </LinkContainer>
 
-                            <Nav.Link className='d-lg-block d-none' href="#theme">
-                                <Form.Check
-                                    type="switch"
-                                    id="custom-switch"
-                                    label="theme"
-                                />
-                            </Nav.Link>
                         </Nav>
 
                         <Nav className='user-info'>

@@ -14,6 +14,7 @@ const CourseDetails = () => {
         onAfterPrint: () => alert("Successfully Printed")
     });
     const tutorials = useLoaderData();
+    console.log(tutorials)
     return (
         <div ref={ReadPdfPrint} className="card p-4 mt-3 mb-3 card-container shadow-lg p-3 mb-5 bg-body rounded">
             <h2 className="card-title">{tutorials.title}<FaPrint className='printer' onClick={handleToPrint} title="Print now" /></h2>
@@ -27,7 +28,14 @@ const CourseDetails = () => {
                     <span>Student Review: {tutorials.rating.rate}</span>
                     <span>Available Seat: {tutorials.rating.count}</span>
                 </div>
-                <Link to='/checkout' className='btn btn-success'>Get Premium Access</Link>
+                <Link to={{
+                    pathname: `/checkout/${tutorials.id}`,
+                    query: {
+                        title: tutorials.title,
+                        content: tutorials.details,
+                        comments: JSON.stringify(tutorials.comments),
+                    }
+                }} className='btn btn-success'>Get Premium Access</Link>
             </div>
         </div>
     );

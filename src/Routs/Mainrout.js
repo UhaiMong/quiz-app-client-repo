@@ -15,33 +15,33 @@ export const routers = createBrowserRouter([
         children: [
             {
                 path: '/',
-                loader: () => fetch('http://localhost:5000/all-tutorial'),
-                element:<Courses></Courses>
-                
+                loader: () => fetch('https://learn-yourself-server.vercel.app/all-tutorial'),
+                element: <Courses></Courses>
+
             },
             {
                 path: '/courses',
-                loader: () => fetch('http://localhost:5000/all-tutorial'),
-                element:<Courses></Courses>
-                
+                loader: () => fetch('https://learn-yourself-server.vercel.app/all-tutorial'),
+                element: <Courses></Courses>
+
             },
             {
                 path: '/blog',
-                element:<Blog></Blog>
-                
+                element: <Blog></Blog>
+
             },
             {
                 path: '/login',
-                element:<Login></Login>
+                element: <Login></Login>
             },
             {
                 path: '/register',
-                element:<RegisterPage></RegisterPage>
+                element: <RegisterPage></RegisterPage>
             },
             {
                 path: '/course-name/:id',
                 element: <CourseDetails></CourseDetails>,
-                loader: ({params}) => fetch(`http://localhost:5000/tutorial/${params.id}`),
+                loader: ({ params }) => fetch(`https://learn-yourself-server.vercel.app/tutorial/${params.id}`),
             },
             {
                 path: '/checkout',
@@ -51,6 +51,6 @@ export const routers = createBrowserRouter([
     },
     {
         path: '*',
-        element:<div><h3>The page is 404</h3></div>
+        element: <div><h3>The page is 404</h3></div>
     }
 ]);

@@ -8,20 +8,20 @@ const Sidebar = () => {
     const [coursesName, setCoursesName] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/course-name')
+        fetch('https://learn-yourself-server.vercel.app/course-name')
             .then(res => res.json())
             .then(data => setCoursesName(data))
     }, [])
     return (
         <div className='border border-info mt-3 p-2 w-100 shadow p-3 mb-5 bg-body rounded'>
             <h5>Total Courses {coursesName.length}</h5>
-                {
-                    coursesName.map(course => <p
-                        key={course.id}
-                    >
-                        <Link className='tutorial-link' to={`/course-name/${course.id}`}>{course.name}</Link>
-                    </p>)
-                }
+            {
+                coursesName.map(course => <p
+                    key={course.id}
+                >
+                    <Link className='tutorial-link' to={`/course-name/${course.id}`}>{course.name}</Link>
+                </p>)
+            }
         </div>
     );
 };

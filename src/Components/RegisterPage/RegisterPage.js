@@ -56,7 +56,7 @@ const RegisterPage = () => {
             })
     }
     return (
-        <div className='shadow-lg p-3 mb-5 bg-body rounded mt-4 w-50 m-auto'>
+        <div className='shadow-lg p-3 mb-5 bg-body rounded mt-4 w-100 m-auto'>
             <form onSubmit={handleToSubmit} className="px-4 py-3">
                 <div className="mb-3">
                     <label htmlFor="username" className="form-label">Full name</label>
